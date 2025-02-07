@@ -7,7 +7,8 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Mobile Number</th>
                     <th>Date of Birth</th>
                     <th>Anniversary Date</th>
@@ -18,7 +19,8 @@
             <tbody>
                 @foreach($members as $member)
                     <tr>
-                        <td>{{ $member->name }}</td>
+                        <td>{{ $member->first_name }}</td>
+                        <td>{{ $member->last_name }}</td>
                         <td>{{ $member->mobile_number }}</td>
                         <td>{{ $member->date_of_birth }}</td>
                         <td>{{ $member->anniversary_date }}</td>
@@ -33,7 +35,12 @@
                             <form action="{{ route('members.sendSms') }}" method="POST" style="display:inline;">
                                 @csrf
                                 <input type="hidden" name="member_ids[]" value="{{ $member->id }}">
-                                <button type="submit" class="btn btn-primary btn-sm">Send SMS</button>
+                                <select name="template_id" class="form-control form-control-sm" required>
+                                    @foreach(\App\Models\SmsTemplate::all() as $template)
+                                        <option value="{{ $template->id }}">{{ $template->name }}</option>
+                                    @endforeach
+                                </select>
+                                <button type="submit" class="btn btn-primary btn-sm mt-2">Send SMS</button>
                             </form>
                         </td>
                     </tr>

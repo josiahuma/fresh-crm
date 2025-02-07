@@ -4,8 +4,11 @@
     <h1>Add Member</h1>
     <form action="{{ route('members.store') }}" method="POST">
         @csrf
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" required>
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name" required>
+        
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" required>
         
         <label for="mobile_number">Mobile Number:</label>
         <input type="text" name="mobile_number" id="mobile_number" required>

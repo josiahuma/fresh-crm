@@ -8,7 +8,7 @@ class Member extends Model
 {
     //
     protected $fillable = [
-        'name', 'mobile_number', 'date_of_birth', 'anniversary_date', 'church_unit', 'custom_fields'
+        'first_name', 'last_name', 'mobile_number', 'date_of_birth', 'anniversary_date', 'church_unit', 'custom_fields'
     ];
 
     protected $casts = [

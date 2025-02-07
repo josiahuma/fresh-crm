@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\SmsTemplate;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
@@ -42,10 +43,12 @@ class MemberController extends Controller
         \Log::info('Member IDs: ' . implode(', ', $request->member_ids));
 
         $members = Member::whereIn('id', $request->member_ids)->get();
-        $message = $request->message ?? 'Default message';
+        $template = SmsTemplate::findOrFail($request->template_id);
+        $messageTemplate = $template->message;
 
         foreach ($members as $member) {
             \Log::info('Sending SMS to: ' . $member->mobile_number);
+            $message = str_replace('{first_name}', $member->first_name, $messageTemplate);
             $this->sendSmsToMember($member->mobile_number, $message);
         }
 

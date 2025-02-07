@@ -5,8 +5,11 @@
     <form action="{{ route('members.update', $member->id) }}" method="POST">
         @csrf
         @method('PUT')
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" value="{{ $member->name }}" required>
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name" value="{{ $member->first_name }}" required>
+        
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" value="{{ $member->last_name }}" required>
         
         <label for="mobile_number">Mobile Number:</label>
         <input type="text" name="mobile_number" id="mobile_number" value="{{ $member->mobile_number }}" required>

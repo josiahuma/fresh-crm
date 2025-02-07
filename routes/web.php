@@ -5,6 +5,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SmsTemplateController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +18,7 @@ Route::post('members/send-sms', [MemberController::class, 'sendSms'])->name('mem
 
 Route::resource('attendances', AttendanceController::class)->middleware('auth');
 Route::resource('finances', FinanceController::class)->middleware('auth');
+Route::resource('sms_templates', SmsTemplateController::class)->middleware('auth');
 
 Auth::routes();
 

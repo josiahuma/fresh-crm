@@ -61,11 +61,12 @@
 <body>
     @auth
     <div class="sidebar">
-        <h2>Church CRM</h2>
+        <h2>Fresh CRM</h2>
         <a href="{{ route('dashboard') }}">Dashboard</a>
         <a href="{{ route('members.index') }}">Members</a>
         <a href="{{ route('attendances.index') }}">Attendance</a>
         <a href="{{ route('finances.index') }}">Finance</a>
+        <a href="{{ route('sms_templates.index') }}">SMS Templates</a>
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
