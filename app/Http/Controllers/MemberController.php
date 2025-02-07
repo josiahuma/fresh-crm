@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use App\Models\SmsTemplate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\MembersImport;
 
 class MemberController extends Controller
 {
@@ -35,6 +38,17 @@ class MemberController extends Controller
         $member = Member::findOrFail($id);
         $member->update($request->all());
         return redirect()->route('members.index');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'csv_file' => 'required|mimes:csv,txt',
+        ]);
+    
+        Excel::import(new MembersImport, $request->file('csv_file'));
+    
+        return redirect()->route('members.index')->with('success', 'Members imported successfully!');
     }
 
     public function sendSms(Request $request)

@@ -4,6 +4,11 @@
     <div class="container">
         <h1 class="my-4">Members</h1>
         <a href="{{ route('members.create') }}" class="btn btn-success mb-3">Add Member</a>
+        <form action="{{ route('members.import') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <input type="file" name="csv_file" required>
+    <button type="submit">Upload</button>
+</form>
         <table class="table table-striped">
             <thead>
                 <tr>

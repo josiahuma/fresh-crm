@@ -19,6 +19,7 @@ Route::post('members/send-sms', [MemberController::class, 'sendSms'])->name('mem
 Route::resource('attendances', AttendanceController::class)->middleware('auth');
 Route::resource('finances', FinanceController::class)->middleware('auth');
 Route::resource('sms_templates', SmsTemplateController::class)->middleware('auth');
+Route::post('/members/import', [MemberController::class, 'import'])->name('members.import');
 
 Auth::routes();
 
