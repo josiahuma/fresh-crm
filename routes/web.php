@@ -6,21 +6,32 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SmsTemplateController;
+use App\Http\Controllers\HomeController;
 
+// Welcome route
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Dashboard route
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
+// Member routes
 Route::resource('members', MemberController::class)->middleware('auth');
 Route::post('members/send-sms', [MemberController::class, 'sendSms'])->name('members.sendSms')->middleware('auth');
+Route::post('/members/import', [MemberController::class, 'import'])->name('members.import')->middleware('auth');
 
+// Attendance routes
 Route::resource('attendances', AttendanceController::class)->middleware('auth');
-Route::resource('finances', FinanceController::class)->middleware('auth');
-Route::resource('sms_templates', SmsTemplateController::class)->middleware('auth');
-Route::post('/members/import', [MemberController::class, 'import'])->name('members.import');
 
+// Finance routes
+Route::resource('finances', FinanceController::class)->middleware('auth');
+
+// SMS Template routes
+Route::resource('sms_templates', SmsTemplateController::class)->middleware('auth');
+
+// Authentication routes
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Home route
+Route::get('/home', [HomeController::class, 'index'])->name('home');

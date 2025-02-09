@@ -13,6 +13,7 @@
                 <label for="message">Message</label>
                 <textarea name="message" id="message" class="form-control" required></textarea>
             </div>
+            <a href="{{ route('sms_templates.index') }}" class="btn btn-secondary">Back</a>
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
