@@ -18,9 +18,39 @@ class FinanceController extends Controller
         return view('finances.create');
     }
 
-    public function store(Request $request)
+    public function storeIncome(Request $request)
     {
-        $finance = Finance::create($request->all());
-        return redirect()->route('finances.index');
+        $request->validate([
+            'date' => 'required|date',
+            'amount' => 'required|numeric',
+            'description' => 'nullable|string',
+        ]);
+
+        Finance::create([
+            'date' => $request->date,
+            'amount' => $request->amount,
+            'description' => $request->description,
+            'type' => 'income',
+        ]);
+
+        return redirect()->route('finances.index')->with('success', 'Income recorded successfully!');
+    }
+
+    public function storeExpense(Request $request)
+    {
+        $request->validate([
+            'date' => 'required|date',
+            'amount' => 'required|numeric',
+            'description' => 'nullable|string',
+        ]);
+
+        Finance::create([
+            'date' => $request->date,
+            'amount' => $request->amount,
+            'description' => $request->description,
+            'type' => 'expense',
+        ]);
+
+        return redirect()->route('finances.index')->with('success', 'Expense recorded successfully!');
     }
 }

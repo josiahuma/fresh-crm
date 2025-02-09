@@ -19,10 +19,11 @@ class MembersImport implements ToModel
             'first_name' => $row[0],
             'last_name' => $row[1],
             'mobile_number' => $row[2],
-            'date_of_birth' => $row[3],
-            'anniversary_date' => $row[4],
-            'church_unit' => $row[5],
-            'custom_fields' => $row[6],
+            'email' => $row[3],
+            'date_of_birth' => $row[4],
+            'anniversary_date' => $row[5],
+            'church_unit' => $row[6],
+            'custom_fields' => $row[7],
             // Add other fields as necessary
         ]);
     }

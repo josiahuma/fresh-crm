@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('women');
             $table->integer('children');
             $table->date('date');
+            $table->string('event');
             $table->timestamps();
         });
     }

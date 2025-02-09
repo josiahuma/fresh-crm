@@ -12,6 +12,7 @@
                     <th>Men</th>
                     <th>Women</th>
                     <th>Children</th>
+                    <th>Event</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,7 @@
                         <td>{{ $attendance->men }}</td>
                         <td>{{ $attendance->women }}</td>
                         <td>{{ $attendance->children }}</td>
+                        <td>{{ $attendance->event }}</td>
                     </tr>
                 @endforeach
             </tbody>

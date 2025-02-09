@@ -26,6 +26,8 @@ Route::resource('attendances', AttendanceController::class)->middleware('auth');
 
 // Finance routes
 Route::resource('finances', FinanceController::class)->middleware('auth');
+Route::post('finances/store-income', [FinanceController::class, 'storeIncome'])->name('finances.storeIncome');
+Route::post('finances/store-expense', [FinanceController::class, 'storeExpense'])->name('finances.storeExpense');
 
 // SMS Template routes
 Route::resource('sms_templates', SmsTemplateController::class)->middleware('auth');

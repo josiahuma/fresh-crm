@@ -21,6 +21,15 @@
                 <label for="children">Children:</label>
                 <input type="number" name="children" id="children" class="form-control" required>
             </div>
+            <div class="form-group">
+                <label for="event">Event:</label>
+                <select name="event" id="event" class="form-control" required>
+                    <option value="Sunday Encounter">Sunday Encounter</option>
+                    <option value="Prayer Meeting">Prayer Meeting</option>
+                    <option value="Youth Meeting">Refresh</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
             <a href="{{ route('attendances.index') }}" class="btn btn-secondary">Back</a>
             <button type="submit" class="btn btn-primary">Save</button>
         </form>

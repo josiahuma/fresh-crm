@@ -16,9 +16,11 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Mobile Number</th>
+                        <th>Email</th>
                         <th>Date of Birth</th>
                         <th>Anniversary Date</th>
                         <th>Church Unit</th>
+                        <th>Custom Fields</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -28,9 +30,11 @@
                             <td>{{ $member->first_name }}</td>
                             <td>{{ $member->last_name }}</td>
                             <td>{{ $member->mobile_number }}</td>
+                            <td>{{ $member->email }}</td>
                             <td>{{ $member->date_of_birth }}</td>
                             <td>{{ $member->anniversary_date }}</td>
                             <td>{{ $member->church_unit }}</td>
+                            <td>{{ $member->custom_fields }}</td>
                             <td>
                                 <a href="{{ route('members.edit', $member->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{ route('members.destroy', $member->id) }}" method="POST" style="display:inline;">

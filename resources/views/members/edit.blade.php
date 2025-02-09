@@ -19,6 +19,10 @@
             <input type="text" name="mobile_number" id="mobile_number" class="form-control" value="{{ $member->mobile_number }}" required>
         </div>
         <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" class="form-control" value="{{ $member->email }}" required>
+        </div>
+        <div class="form-group">
             <label for="date_of_birth">Date of Birth:</label>
             <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" value="{{ $member->date_of_birth }}" required>
         </div>
@@ -28,11 +32,19 @@
         </div>
         <div class="form-group">
             <label for="church_unit">Church Unit:</label>
-            <input type="text" name="church_unit" id="church_unit" class="form-control" value="{{ $member->church_unit }}">
+            <select name="church_unit" id="church_unit" class="form-control" value="{{ $member->church_unit }}">
+                <option value="Admin">Admin</option>
+                <option value="Choir">Choir</option>
+                <option value="Prayer">Prayer</option>
+                <option value="Ushering">Ushering</option>
+                <option value="Protocol">Protocol</option>
+                <option value="Media">Media</option>
+                <option value="Hospitality">Hospitality</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="custom_fields">Custom Fields:</label>
-            <textarea name="custom_fields" id="custom_fields" class="form-control">{{ $member->custom_fields }}</textarea>
+            <input type="text" name="custom_fields" id="custom_fields" class="form-control" value="{{ $member->custom_fields }}">
         </div>
         <a href="{{ route('members.index') }}" class="btn btn-secondary">Back</a>
         <button type="submit" class="btn btn-primary">Save</button>

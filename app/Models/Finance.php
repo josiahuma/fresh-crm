@@ -8,6 +8,6 @@ class Finance extends Model
 {
     //
     protected $fillable = [
-        'income', 'expense', 'description', 'date'
+        'amount', 'type', 'description', 'date'
     ];
 }

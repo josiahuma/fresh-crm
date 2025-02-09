@@ -8,6 +8,6 @@ class Attendance extends Model
 {
     //
     protected $fillable = [
-        'men', 'women', 'children', 'date'
+        'men', 'women', 'children', 'date', 'event'
     ];
 }
