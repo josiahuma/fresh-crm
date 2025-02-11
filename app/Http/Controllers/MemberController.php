@@ -33,6 +33,12 @@ class MemberController extends Controller
         return view('members.edit', compact('member'));
     }
 
+    public function profile($id)
+    {
+        $member = Member::findOrFail($id);
+        return view('members.profile', compact('member'));
+    }
+
     public function update(Request $request, $id)
     {
         $member = Member::findOrFail($id);
