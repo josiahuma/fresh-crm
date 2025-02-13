@@ -19,8 +19,9 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 // Member routes
 Route::resource('members', MemberController::class)->middleware('auth');
 Route::post('members/send-sms', [MemberController::class, 'sendSms'])->name('members.sendSms')->middleware('auth');
-Route::post('/members/import', [MemberController::class, 'import'])->name('members.import')->middleware('auth');
-Route::get('/members/{id}/profile', [MemberController::class, 'profile'])->name('members.profile')->middleware('auth');
+Route::post('/members/bulk-sms', [MemberController::class, 'sendBulkSms'])->name('members.bulkSms')->middleware('auth');
+Route::post('members/import', [MemberController::class, 'import'])->name('members.import')->middleware('auth');
+Route::get('members/{id}/profile', [MemberController::class, 'profile'])->name('members.profile')->middleware('auth');
 
 // Attendance routes
 Route::resource('attendances', AttendanceController::class)->middleware('auth');

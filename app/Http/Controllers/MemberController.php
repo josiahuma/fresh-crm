@@ -67,12 +67,36 @@ class MemberController extends Controller
         $messageTemplate = $template->message;
 
         foreach ($members as $member) {
-            \Log::info('Sending SMS to: ' . $member->mobile_number);
             $message = str_replace('{first_name}', $member->first_name, $messageTemplate);
+            \Log::info('Sending '. $message . ' to: ' . $member->mobile_number);
             $this->sendSmsToMember($member->mobile_number, $message);
         }
 
-        return redirect()->route('members.index')->with('success', 'SMS sent successfully!');
+        //return redirect()->route('members.index')->with('success', 'SMS sent successfully!');
+        return back()->with(['message'=>'Updated!']);
+    }
+
+    public function sendBulkSms(Request $request)
+    {
+        \Log::info('sendBulkSms method called');
+        \Log::info($request);
+
+        $request->validate([
+            'template_id' => 'required',
+        ]);
+
+        $members = Member::all();
+        $template = SmsTemplate::findOrFail($request->template_id);
+        $messageTemplate = $template->message;
+
+        foreach ($members as $member) {
+            $message = str_replace('{first_name}', $member->first_name, $messageTemplate);
+            \Log::info('Sending '. $message .' to: ' . $member->mobile_number);
+            $this->sendSmsToMember($member->mobile_number, $message);
+        }
+
+        //return redirect()->route('members.index')->with('success', 'Bulk SMS sent successfully!');
+        return back()->with(['message'=>'Updated!']);
     }
 
     private function sendSmsToMember($mobileNumber, $message)

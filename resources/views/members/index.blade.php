@@ -8,6 +8,21 @@
         <input type="file" name="csv_file" required>
         <button type="submit">Upload</button>
     </form>
+    <br />
+    <br />
+    <label class="notice" for="send_sms">Send SMS (Choose SMS template below):</label>
+    <br />
+    <form action="{{ route('members.bulkSms') }}" method="POST">
+        @csrf
+        <select name="template_id" class="form-control form-control-sm" required>
+            @foreach(\App\Models\SmsTemplate::all() as $template)
+                <option value="{{ $template->id }}">{{ $template->name }}</option>
+            @endforeach
+        </select>
+        <input type="hidden" name="selected_members[]" id="selectedMembers" value="{{ $members }}">
+        <br />
+        <button type="submit" class="btn btn-primary mb-3" onclick="return confirm('Message sent')">Send Bulk SMS</button>
+    </form>
     <div class="table-responsive">
         <table id="dataTable" data-sort-order="asc" class="table table-striped">
             <thead>
@@ -25,37 +40,37 @@
             </thead>
             <tbody>
                 @foreach($members as $member)
-                <tr class="clickable-row" data-href="{{ route('members.profile', $member->id) }}">
-                    <td>{{ $member->first_name }}</td>
-                    <td>{{ $member->last_name }}</td>
-                    <td>{{ $member->mobile_number }}</td>
-                    <td>{{ $member->email }}</td>
-                    <td>{{ $member->date_of_birth }}</td>
-                    <td>{{ $member->anniversary_date }}</td>
-                    <td>{{ $member->church_unit }}</td>
-                    <td>{{ $member->custom_fields }}</td>
-                    <td>
-                        <a href="{{ route('members.edit', $member->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="{{ route('members.destroy', $member->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this member?')">Delete</button>
-                        </form>
-                        <form action="{{ route('members.sendSms') }}" method="POST" style="display:inline;">
-                            @csrf
-                            <input type="hidden" name="member_ids[]" value="{{ $member->id }}">
-                            <select name="template_id" class="form-control form-control-sm" required>
-                                @foreach(\App\Models\SmsTemplate::all() as $template)
-                                <option value="{{ $template->id }}">{{ $template->name }}</option>
-                                @endforeach
-                            </select>
-                            <button type="submit" class="btn btn-primary btn-sm mt-2">Send SMS</button>
-                        </form>
-                    </td>
-                </tr>
+                    <tr class="clickable-row" data-href="{{ route('members.profile', $member->id) }}">
+                        <td>{{ $member->first_name }}</td>
+                        <td>{{ $member->last_name }}</td>
+                        <td>{{ $member->mobile_number }}</td>
+                        <td>{{ $member->email }}</td>
+                        <td>{{ $member->date_of_birth }}</td>
+                        <td>{{ $member->anniversary_date }}</td>
+                        <td>{{ $member->church_unit }}</td>
+                        <td>{{ $member->custom_fields }}</td>
+                        <td>
+                            <a href="{{ route('members.edit', $member->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('members.destroy', $member->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this member?')">Delete</button>
+                            </form>
+                            <!-- <form action="{{ route('members.sendSms') }}" method="POST" style="display:inline;">
+                                @csrf
+                                <input type="hidden" name="member_ids[]" value="{{ $member->id }}">
+                                <select name="template_id" class="form-control form-control-sm" required>
+                                    @foreach(\App\Models\SmsTemplate::all() as $template)
+                                    <option value="{{ $template->id }}">{{ $template->name }}</option>
+                                    @endforeach
+                                </select>
+                                <button type="submit" class="btn btn-primary btn-sm mt-2">Send SMS</button>
+                            </form> -->
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
-        </table>
+        </table>     
     </div>
 </div>
 
@@ -103,5 +118,10 @@
             let arrow = order === "asc" ? " ▲" : " ▼";
             headers[columnIndex].innerHTML += arrow;
         }
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
 </script>
 @endsection

@@ -68,6 +68,11 @@
         .table-striped tbody tr:nth-of-type(even) {
             background-color: #e6f7ff;
         }
+        .notice {
+            font-size: 18px;
+            font-weight: bold;
+            color:red;
+        }
         @media (min-width: 992px) {
             body {
                 flex-direction: row; /* Side by side layout for larger screens */

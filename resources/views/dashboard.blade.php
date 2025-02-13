@@ -63,7 +63,7 @@
                                         <option value="{{ $template->id }}">{{ $template->name }}</option>
                                         @endforeach
                                     </select>
-                                    <button type="submit" class="btn btn-primary btn-sm mt-2">Send SMS</button>
+                                    <button type="submit" class="btn btn-primary btn-sm mt-2" onclick="return confirm('Message Sent')">Send SMS</button>
                                 </form>
                             </td>
                         </tr>
@@ -101,7 +101,7 @@
                                         <option value="{{ $template->id }}">{{ $template->name }}</option>
                                         @endforeach
                                     </select>
-                                    <button type="submit" class="btn btn-primary btn-sm mt-2">Send SMS</button>
+                                    <button type="submit" class="btn btn-primary btn-sm mt-2" onclick="return confirm('Message Sent')">Send SMS</button>
                                 </form>
                             </td>
                         </tr>

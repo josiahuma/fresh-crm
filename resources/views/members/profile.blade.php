@@ -47,7 +47,7 @@
             </form>
             <br />
             <br />
-            <label for="send_sms">Send SMS (Choose SMS template below):</label>
+            <label class="notice" for="send_sms">Send SMS (Choose SMS template below):</label>
             <form action="{{ route('members.sendSms') }}" method="POST" style="display:inline;">
                 @csrf
                 <input type="hidden" name="member_ids[]" value="{{ $member->id }}">
@@ -56,7 +56,7 @@
                     <option value="{{ $template->id }}">{{ $template->name }}</option>
                     @endforeach
                 </select>
-                <button type="submit" class="btn btn-primary btn-sm mt-2">Send SMS</button>
+                <button type="submit" class="btn btn-primary btn-sm mt-2" onclick="return confirm('Message Sent')">Send SMS</button>
             </form>
         </div>
 </div>
