@@ -53,6 +53,9 @@
         .tile-members {
             background-color: #007bff;
         }
+        .tile-leaders {
+            background-color:rgb(5, 27, 51);
+        }
         .tile-attendance {
             background-color: #ffc107;
         }

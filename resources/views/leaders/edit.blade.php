@@ -2,79 +2,43 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Edit Leader') }}</div>
-                <div class="card-body">
-                    <form method="POST" action="{{ route('leaders.update', $leader->id) }}">
-                        @csrf
-                        @method('PUT')
-                        <div class="row mb-3">
-                            <label for="firstname" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
-                            <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname', $leader->firstname) }}" required autofocus>
-                                @error('firstname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="lastname" class="col-md-4 col-form-label text-md-end">{{ __('Last Name') }}</label>
-                            <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname', $leader->lastname) }}" required>
-                                @error('lastname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="mobile" class="col-md-4 col-form-label text-md-end">{{ __('Mobile') }}</label>
-                            <div class="col-md-6">
-                                <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile', $leader->mobile) }}" required>
-                                @error('mobile')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $leader->email) }}" required>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="church_unit" class="col-md-4 col-form-label text-md-end">{{ __('Church Unit') }}</label>
-                            <div class="col-md-6">
-                                <input id="church_unit" type="text" class="form-control @error('church_unit') is-invalid @enderror" name="church_unit" value="{{ old('church_unit', $leader->church_unit) }}" required>
-                                @error('church_unit')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Update Leader') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<h1>Edit Leader</h1>
+    <form action="{{ route('leaders.update', $leader->id) }}" method="POST">
+        @csrf
+        @method('PUT')
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" class="form-control" value="{{ $leader->first_name }}" required @if(auth()->user()->user_type != 'admin') disabled @endif>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" class="form-control" value="{{ $leader->last_name }}" required @if(auth()->user()->user_type != 'admin') disabled @endif>
+        </div>
+        <div class="form-group">
+            <label for="mobile_number">Mobile Number:</label>
+            <input type="text" name="mobile_number" id="mobile_number" class="form-control" value="{{ $leader->mobile_number }}" required @if(auth()->user()->user_type != 'admin') disabled @endif>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" class="form-control" value="{{ $leader->email }}" required @if(auth()->user()->user_type != 'admin') disabled @endif>
+        </div>
+        <div class="form-group">
+            <label for="church_unit">Church Unit:</label>
+            <select name="church_unit" id="church_unit" class="form-control" value="{{ $leader->church_unit }}"  @if(auth()->user()->user_type != 'admin') disabled @endif>
+                <option value="Admin">Admin</option>
+                <option value="Choir">Choir</option>
+                <option value="Children">Children</option>
+                <option value="Youth">Youth</option>
+                <option value="Evangelism">Evangelism</option>
+                <option value="Prayer">Prayer</option>
+                <option value="Ushering">Ushering</option>
+                <option value="Protocol">Protocol</option>
+                <option value="Media">Media</option>
+                <option value="Hospitality">Hospitality</option>
+            </select>
+        </div>
+        <a href="{{ route('leaders.index') }}" class="btn btn-secondary">Back</a>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
 </div>
 @endsection

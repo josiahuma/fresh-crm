@@ -37,6 +37,9 @@
             <Select name="church_unit" id="church_unit" class="form-control" required>
                 <option value="Admin">Admin</option>
                 <option value="Choir">Choir</option>
+                <option value="Children">Children</option>
+                <option value="Youth">Youth</option>
+                <option value="Evangelism">Evangelism</option>
                 <option value="Prayer">Prayer</option>
                 <option value="Ushering">Ushering</option>
                 <option value="Protocol">Protocol</option>
