@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('mobile_number');
             $table->string('email')->unique();
+            $table->string('church_unit');
             $table->string('members_count')->default(0);
             $table->timestamps();
         });

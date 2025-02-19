@@ -13,6 +13,7 @@
                     <th>Last Name</th>
                     <th>Mobile</th>
                     <th>Email</th>
+                    <th>Church Unit</th>
                     <th>Members Count</th>
                     <th>Actions</th>
                 </tr>
@@ -25,6 +26,7 @@
                         <td>{{ $leader->last_name }}</td>
                         <td>{{ $leader->mobile_number }}</td>
                         <td>{{ $leader->email }}</td>
+                        <td>{{ $leader->church_unit }}</td>
                         <td>{{ $leader->members_count }}</td>
                         <td>
                             <a href="{{ route('leaders.show', $leader->id) }}" class="btn btn-info">View</a>

@@ -32,6 +32,12 @@
                         </div>
                     </div>
                     <div class="row mb-3">
+                        <label for="church_unit" class="col-md-4 col-form-label text-md-end">{{ __('Church Unit') }}</label>
+                        <div class="col-md-6">
+                            <input id="church_unit" type="text" class="form-control" name="church_unit" value="{{ $leader->church_unit }}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
                         <label for="members_count" class="col-md-4 col-form-label text-md-end">{{ __('Members Count') }}</label>
                         <div class="col-md-6">
                             <input id="members_count" type="text" class="form-control" name="members_count" value="{{ $leader->members_count }}" readonly>

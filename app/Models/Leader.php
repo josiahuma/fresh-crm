@@ -11,6 +11,6 @@ class Leader extends Model
     use HasFactory;
 
     protected $fillable = [
-        'first_name', 'last_name', 'mobile_number', 'email', 'members_count'
+        'first_name', 'last_name', 'mobile_number', 'email', 'church_unit', 'members_count'
     ];
 }
