@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\Leader;
 use App\Models\SmsTemplate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -24,6 +25,13 @@ class MemberController extends Controller
     public function store(Request $request)
     {
         $member = Member::create($request->all());
+         // Increment the members_count for the selected leader
+         $leader = Leader::where('first_name', $request->church_leader)->first();
+         \Log::info('Leader: ' . $leader);
+         if ($leader) {
+             $leader->increment('members_count');
+             \Log::info('Leader members_count incremented');
+         }
         return redirect()->route('members.index');
     }
 
@@ -42,7 +50,20 @@ class MemberController extends Controller
     public function update(Request $request, $id)
     {
         $member = Member::findOrFail($id);
-        $member->update($request->all());
+         // Decrement the members_count for the old leader
+         $oldLeader = Leader::where('first_name', $member->church_leader)->first();
+         if ($oldLeader) {
+             $oldLeader->decrement('members_count');
+         }
+
+         $member->update($request->all());
+
+          // Increment the members_count for the new leader
+        $newLeader = Leader::where('first_name', $request->church_leader)->first();
+        if ($newLeader) {
+            $newLeader->increment('members_count');
+        }
+
         return redirect()->route('members.index');
     }
 
@@ -125,6 +146,11 @@ class MemberController extends Controller
     public function destroy($id)
     {
         $member = Member::findOrFail($id);
+        // Decrement the members_count for the leader
+        $leader = Leader::where('first_name', $member->church_leader)->first();
+        if ($leader) {
+            $leader->decrement('members_count');
+        }
         $member->delete();
         return redirect()->route('members.index');
     }

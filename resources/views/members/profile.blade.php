@@ -34,6 +34,10 @@
             <label for="church_unit">{{ $member->church_unit }}</label>
         </div>
         <div class="form-group">
+            <label for="church_leader">Church Leader:</label>
+            <label for="church_leader">{{ $member->church_leader }}</label>
+        </div>
+        <div class="form-group">
             <label for="custom_fields">Custom Fields:</label>
             <label for="custom_fields">{{ $member->custom_fields }}</label>
         </div>

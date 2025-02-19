@@ -44,6 +44,14 @@
                 <option value="Hospitality">Hospitality</option>
             </select>
         </div>
+        <div class="form-group">
+            <label for="church_leader">Church Leader:</label>
+            <Select name="church_leader" id="church_leader" class="form-control" required>
+                @foreach(\App\Models\Leader::all() as $leader)
+                    <option value="{{ $leader->first_name }}">{{ $leader->first_name }}</option>
+                @endforeach
+            </select>
+        </div>
         
         <div class="form-group">
         <label for="custom_fields">Custom Fields:</label>

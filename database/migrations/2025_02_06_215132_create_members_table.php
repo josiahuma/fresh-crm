@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('date_of_birth')->nullable();
             $table->date('anniversary_date')->nullable();
             $table->string('church_unit')->nullable();
+            $table->string('church_leader')->nullable();
             $table->json('custom_fields')->nullable();
             $table->timestamps();
         });

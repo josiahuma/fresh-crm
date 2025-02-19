@@ -137,11 +137,23 @@
     <div class="main-container">
         <div class="sidebar d-none d-lg-block">
             <h2>Fresh CRM</h2>
-            <a href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-            <a href="{{ route('members.index') }}"><i class="fas fa-users"></i> Members</a>
-            <a href="{{ route('attendances.index') }}"><i class="fas fa-calendar-check"></i> Attendance</a>
-            <a href="{{ route('finances.index') }}"><i class="fas fa-pound-sign"></i> Finance</a>
-            <a href="{{ route('sms_templates.index') }}"><i class="fas fa-sms"></i> SMS Templates</a>
+            @if(auth()->user()->user_type == 'admin')
+                <a href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="{{ route('members.index') }}"><i class="fas fa-users"></i> Members</a>
+                <a href="{{ route('attendances.index') }}"><i class="fas fa-calendar-check"></i> Attendance</a>
+                <a href="{{ route('finances.index') }}"><i class="fas fa-pound-sign"></i> Finance</a>
+                <a href="{{ route('sms_templates.index') }}"><i class="fas fa-sms"></i> SMS Templates</a>
+                <a href="{{ route('leaders.index') }}"><i class="fas fa-user-tie"></i> Leaders</a>
+                <a href="{{ route('followups.index') }}"><i class="fas fa-user-friends"></i> Followups</a>
+            @endif
+            @if(auth()->user()->user_type == 'accountant')
+                <a href="{{ route('finances.index') }}"><i class="fas fa-pound-sign"></i> Finance</a>
+            @endif
+            @if(auth()->user()->user_type == 'receptionist')
+                <a href="{{ route('attendances.index') }}"><i class="fas fa-calendar-check"></i> Attendance</a>
+                <a href="{{ route('followups.index') }}"><i class="fas fa-user-friends"></i> Followups</a>
+            @endif
+
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> Logout</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

@@ -34,6 +34,7 @@
                     <th class="sortable px-4 py-2 cursor-pointer" data-label="Date of Birth" onclick="sortTable(4)">Date of Birth</th>
                     <th class="sortable px-4 py-2 cursor-pointer" data-label="Anniversary Date" onclick="sortTable(5)">Anniversary Date</th>
                     <th class="sortable px-4 py-2 cursor-pointer" data-label="Church Unit" onclick="sortTable(6)">Church Unit</th>
+                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Church Leader" onclick="sortTable(7)">Church Leader</th>
                     <th>Custom Fields</th>
                     <th>Actions</th>
                 </tr>
@@ -48,6 +49,7 @@
                         <td>{{ $member->date_of_birth }}</td>
                         <td>{{ $member->anniversary_date }}</td>
                         <td>{{ $member->church_unit }}</td>
+                        <td>{{ $member->church_leader }}</td>
                         <td>{{ $member->custom_fields }}</td>
                         <td>
                             <a href="{{ route('members.edit', $member->id) }}" class="btn btn-warning btn-sm">Edit</a>
