@@ -21,6 +21,11 @@
 
     @if(isset($members))
         <h2>Members of {{ $leaderName }}</h2>
+        <form action="{{ route('followups.export') }}" method="POST" style="display:inline;">
+            @csrf
+            <input type="hidden" name="leader_name" value="{{ $leaderName }}">
+            <button type="submit" class="btn btn-success mb-3">Download Members</button>
+        </form>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -28,8 +33,8 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Mobile</th>
-                    <th>custom_fields</th>
-                    <th>Actions</th>
+                    <th>Email</th>
+                    <th>Custom Fields</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,10 +44,8 @@
                         <td>{{ $member->first_name }}</td>
                         <td>{{ $member->last_name }}</td>
                         <td>{{ $member->mobile_number }}</td>
+                        <td>{{ $member->email }}</td>
                         <td>{{ $member->custom_fields }}</td>
-                        <td>
-                            <a href="{{ route('members.edit', $member->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        </td>
                     </tr>
                 @endforeach
             </tbody>

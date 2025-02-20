@@ -126,6 +126,9 @@
                     <a class="nav-link" href="{{ route('finances.index') }}"><i class="fas fa-dollar-sign"></i> Finance</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('leaders.index') }}"><i class="fas fa-user-tie"></i> Leaders</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('sms_templates.index') }}"><i class="fas fa-sms"></i> SMS Templates</a>
                 </li>
                 <li class="nav-item">

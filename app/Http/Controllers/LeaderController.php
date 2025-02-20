@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Leader;
 use App\Models\Member; 
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\MembersExport;
 
 class LeaderController extends Controller 
 { 
@@ -46,6 +48,12 @@ class LeaderController extends Controller
         $leader=Leader::findOrFail($leader->id);
         $leader->delete();
         return redirect()->route('leaders.index')->with('success', 'Leader deleted successfully.');
+    }
+
+    public function exportMembers(Request $request)
+    {
+        $leaderName = $request->input('leader_name');
+        return Excel::download(new MembersExport($leaderName), 'members.xlsx');
     }
 
     

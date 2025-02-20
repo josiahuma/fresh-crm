@@ -15,7 +15,7 @@ use App\Http\Controllers\FollowupsController;
 Route::resource('leaders', LeaderController::class);
 Route::get('/followups', [FollowupsController::class, 'index'])->name('followups.index');
 Route::post('/followups', [FollowupsController::class, 'showMembers'])->name('followups.show');
-
+Route::post('/followups/export', [LeaderController::class, 'exportMembers'])->name('followups.export');
 
 // Welcome route
 Route::get('/', function () {
