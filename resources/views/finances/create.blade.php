@@ -17,7 +17,11 @@
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
-            <input type="text" name="description" id="description" class="form-control">
+            <select name="description" id="description" class="form-control" required>
+                @foreach($income_categories as $income_category)
+                    <option value="{{ $income_category->name }}">{{ $income_category->name }}</option>
+                @endforeach
+            </select>
         </div>
         <a href="{{ route('finances.index') }}" class="btn btn-secondary">Back</a>
         <button type="submit" class="btn btn-primary">Save Income</button>
@@ -37,7 +41,11 @@
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
-            <input type="text" name="description" id="description" class="form-control">
+            <select name="description" id="description" class="form-control" required>
+                @foreach($expense_categories as $expense_category)
+                    <option value="{{ $expense_category->name }}">{{ $expense_category->name }}</option>
+                @endforeach
+            </select>
         </div>
         <a href="{{ route('finances.index') }}" class="btn btn-secondary">Back</a>
         <button type="submit" class="btn btn-primary">Save Expense</button>

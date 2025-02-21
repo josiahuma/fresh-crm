@@ -52,6 +52,7 @@
                             <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
                             <div class="col-md-6">
                                 <select id="role" class="form-control" name="user_type" required>
+                                    <option value="sudo">Super Admin</option>
                                     <option value="admin">Admin</option>
                                     <option value="accountant">Accountant</option>
                                     <option value="receptionist">Receptionist</option>

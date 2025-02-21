@@ -33,16 +33,9 @@
         <div class="form-group">
             <label for="church_unit">Church Unit:</label>
             <select name="church_unit" id="church_unit" class="form-control" value="{{ $member->church_unit }}"  @if(auth()->user()->user_type != 'admin') disabled @endif>
-                <option value="Admin">Admin</option>
-                <option value="Choir">Choir</option>
-                <option value="Children">Children</option>
-                <option value="Youth">Youth</option>
-                <option value="Evangelism">Evangelism</option>
-                <option value="Prayer">Prayer</option>
-                <option value="Ushering">Ushering</option>
-                <option value="Protocol">Protocol</option>
-                <option value="Media">Media</option>
-                <option value="Hospitality">Hospitality</option>
+                @foreach(\App\Models\ChurchUnitCategory::all() as $church_unit_category)
+                    <option value="{{ $church_unit_category->name }}">{{ $church_unit_category->name }}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group">

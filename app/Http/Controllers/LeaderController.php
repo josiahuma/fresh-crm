@@ -5,7 +5,7 @@ use App\Models\Leader;
 use App\Models\Member; 
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\MembersExport;
+use App\Export\MembersExport;
 
 class LeaderController extends Controller 
 { 

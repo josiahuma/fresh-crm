@@ -24,10 +24,9 @@
             <div class="form-group">
                 <label for="event">Event:</label>
                 <select name="event" id="event" class="form-control" required>
-                    <option value="Sunday Encounter">Sunday Encounter</option>
-                    <option value="Prayer Meeting">Prayer Meeting</option>
-                    <option value="Youth Meeting">Refresh</option>
-                    <option value="Other">Other</option>
+                    @foreach($event_categories as $event_category)
+                        <option value="{{ $event_category->name }}">{{ $event_category->name }}</option>
+                    @endforeach
                 </select>
             </div>
             <a href="{{ route('attendances.index') }}" class="btn btn-secondary">Back</a>

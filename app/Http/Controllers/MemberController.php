@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use App\Models\Leader;
 use App\Models\SmsTemplate;
+use App\Models\ChurchUnitCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
@@ -19,7 +20,8 @@ class MemberController extends Controller
 
     public function create()
     {
-        return view('members.create');
+        $church_unit_categories = ChurchUnitCategory::all();
+        return view('members.create', compact('church_unit_categories'));
     }
 
     public function store(Request $request)
@@ -162,5 +164,25 @@ class MemberController extends Controller
         $anniversaries = Member::whereMonth('anniversary_date', $currentMonth)->get();
 
         return view('members.upcoming', compact('birthdays', 'anniversaries'));
+    }
+
+    public function createChurchUnitCategory()
+    {
+        return view('members.add_church_unit_category');
+    }
+
+    public function storeChurchUnitCategory(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'alias' => 'required|string|max:255',
+        ]);
+
+        ChurchUnitCategory::create([
+            'name' => $request->name,
+            'alias' => $request->alias,
+        ]);
+
+        return redirect()->route('church_unit_categories.create')->with('success', 'Category added successfully!');
     }
 }

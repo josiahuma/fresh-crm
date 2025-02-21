@@ -132,6 +132,18 @@
                     <a class="nav-link" href="{{ route('sms_templates.index') }}"><i class="fas fa-sms"></i> SMS Templates</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('income_categories.create') }}"><i class="fas fa-money-bill"></i> Add Income Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('expense_categories.create') }}"><i class="fas fa-money-bill"></i> Add Expense Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('event_categories.create') }}"><i class="fas fa-calendar-alt"></i> Add Event Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('church_unit_categories.create') }}"><i class="fas fa-building"></i> Add Church Unit Category</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -143,14 +155,26 @@
     <div class="main-container">
         <div class="sidebar d-none d-lg-block">
             <h2>Fresh CRM</h2>
-            @if(auth()->user()->user_type == 'admin')
+            @if(auth()->user()->user_type == 'sudo')
                 <a href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 <a href="{{ route('members.index') }}"><i class="fas fa-users"></i> Members</a>
+                <a href="{{ route('leaders.index') }}"><i class="fas fa-user-tie"></i> Leaders</a>
+                <a href="{{ route('followups.index') }}"><i class="fas fa-user-friends"></i> Followups</a>
                 <a href="{{ route('attendances.index') }}"><i class="fas fa-calendar-check"></i> Attendance</a>
                 <a href="{{ route('finances.index') }}"><i class="fas fa-pound-sign"></i> Finance</a>
                 <a href="{{ route('sms_templates.index') }}"><i class="fas fa-sms"></i> SMS Templates</a>
+                <a href="{{ route('income_categories.create') }}"><i class="fas fa-money-bill"></i> Add Income Category</a>
+                <a href="{{ route('expense_categories.create') }}"><i class="fas fa-money-bill"></i> Add Expense Category</a>
+                <a href="{{ route('event_categories.create') }}"><i class="fas fa-calendar-alt"></i> Add Event Category</a>
+                <a href="{{ route('church_unit_categories.create') }}"><i class="fas fa-building"></i> Add Church Unit Category</a>
+            @endif
+            @if(auth()->user()->user_type == 'admin')
+                <a href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="{{ route('members.index') }}"><i class="fas fa-users"></i> Members</a>
                 <a href="{{ route('leaders.index') }}"><i class="fas fa-user-tie"></i> Leaders</a>
                 <a href="{{ route('followups.index') }}"><i class="fas fa-user-friends"></i> Followups</a>
+                <a href="{{ route('attendances.index') }}"><i class="fas fa-calendar-check"></i> Attendance</a>
+                <a href="{{ route('finances.index') }}"><i class="fas fa-pound-sign"></i> Finance</a>
             @endif
             @if(auth()->user()->user_type == 'accountant')
                 <a href="{{ route('finances.index') }}"><i class="fas fa-pound-sign"></i> Finance</a>

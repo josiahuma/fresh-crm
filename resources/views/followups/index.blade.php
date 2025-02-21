@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <h1>Follow Ups</h1>
     <form action="{{ route('followups.show') }}" method="POST">
         @csrf
@@ -26,30 +26,32 @@
             <input type="hidden" name="leader_name" value="{{ $leaderName }}">
             <button type="submit" class="btn btn-success mb-3">Download Members</button>
         </form>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Mobile</th>
-                    <th>Email</th>
-                    <th>Custom Fields</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($members as $member)
+        <div class="table-responsive">
+            <table id="dataTable" data-sort-order="asc" class="table table-striped">
+                <thead>
                     <tr>
-                        <td>{{ $member->id }}</td>
-                        <td>{{ $member->first_name }}</td>
-                        <td>{{ $member->last_name }}</td>
-                        <td>{{ $member->mobile_number }}</td>
-                        <td>{{ $member->email }}</td>
-                        <td>{{ $member->custom_fields }}</td>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <th>Custom Fields</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach($members as $member)
+                        <tr>
+                            <td>{{ $member->id }}</td>
+                            <td>{{ $member->first_name }}</td>
+                            <td>{{ $member->last_name }}</td>
+                            <td>{{ $member->mobile_number }}</td>
+                            <td>{{ $member->email }}</td>
+                            <td>{{ $member->custom_fields }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     @endif
 </div>
 @endsection
