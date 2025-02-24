@@ -174,43 +174,12 @@
             </table>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-        <h3>Financial Report</h3>
-            <canvas id="incomeExpensesChart" width="400" height="200"></canvas>
-        </div>
-    </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
 
-document.addEventListener('DOMContentLoaded', function() {
-    const ctx = document.getElementById('incomeExpensesChart').getContext('2d');
-    const incomeExpensesChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Income', 'Expenses'],
-            datasets: [{
-                label: 'Amount (£)',
-                data: [
-                    {{ \App\Models\Finance::where('type', 'income')->whereMonth('created_at', \Carbon\Carbon::now()->month)->sum('amount') }},
-                    {{ \App\Models\Finance::where('type', 'expense')->whereMonth('created_at', \Carbon\Carbon::now()->month)->sum('amount') }}
-                ],
-                backgroundColor: ['#28a745', '#dc3545'],
-                borderColor: ['#28a745', '#dc3545'],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-});
     // hide all initially
     let b_modules = $('.b_module').hide();
     let a_modules = $('.a_module').hide();

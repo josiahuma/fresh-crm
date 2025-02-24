@@ -12,7 +12,8 @@
                     <th class="sortable px-4 py-2 cursor-pointer" data-label="Men" onclick="sortTable(1)">Men</th>
                     <th class="sortable px-4 py-2 cursor-pointer" data-label="Women" onclick="sortTable(2)">Women</th>
                     <th class="sortable px-4 py-2 cursor-pointer" data-label="Children" onclick="sortTable(3)">Children</th>
-                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Event" onclick="sortTable(4)">Event</th>
+                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Event" onclick="sortTable(4)">Total</th>
+                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Total" onclick="sortTable(5)">Event</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,7 @@
                         <td>{{ $attendance->men }}</td>
                         <td>{{ $attendance->women }}</td>
                         <td>{{ $attendance->children }}</td>
+                        <td>{{ $attendance->total }}</td>
                         <td>{{ $attendance->event }}</td>
                     </tr>
                 @endforeach

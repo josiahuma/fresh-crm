@@ -162,6 +162,8 @@
                 <a href="{{ route('followups.index') }}"><i class="fas fa-user-friends"></i> Followups</a>
                 <a href="{{ route('attendances.index') }}"><i class="fas fa-calendar-check"></i> Attendance</a>
                 <a href="{{ route('finances.index') }}"><i class="fas fa-pound-sign"></i> Finance</a>
+                <a href="{{ route('attendance.report') }}"><i class="fas fa-calendar-check"></i> Attendance Report</a>
+                <a href="{{ route('financial.report') }}"><i class="fas fa-calendar-check"></i> Financial Report</a>
                 <a href="{{ route('sms_templates.index') }}"><i class="fas fa-sms"></i> SMS Templates</a>
                 <a href="{{ route('income_categories.create') }}"><i class="fas fa-money-bill"></i> Add Income Category</a>
                 <a href="{{ route('expense_categories.create') }}"><i class="fas fa-money-bill"></i> Add Expense Category</a>
@@ -175,6 +177,8 @@
                 <a href="{{ route('followups.index') }}"><i class="fas fa-user-friends"></i> Followups</a>
                 <a href="{{ route('attendances.index') }}"><i class="fas fa-calendar-check"></i> Attendance</a>
                 <a href="{{ route('finances.index') }}"><i class="fas fa-pound-sign"></i> Finance</a>
+                <a href="{{ route('attendance.report') }}"><i class="fas fa-calendar-check"></i> Attendance Report</a>
+                <a href="{{ route('financial.report') }}"><i class="fas fa-calendar-check"></i> Financial Report</a>
             @endif
             @if(auth()->user()->user_type == 'accountant')
                 <a href="{{ route('finances.index') }}"><i class="fas fa-pound-sign"></i> Finance</a>

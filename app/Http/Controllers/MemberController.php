@@ -18,6 +18,16 @@ class MemberController extends Controller
         return view('members.index', compact('members'));
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('search');
+        $members = Member::where('first_name', 'LIKE', "%{$query}%")
+                         ->orWhere('last_name', 'LIKE', "%{$query}%")
+                         ->orWhereRaw("CONCAT(first_name, ' ', last_name) = ?", [$query])
+                         ->get();
+        return view('members.index', compact('members'));
+    }
+
     public function create()
     {
         $church_unit_categories = ChurchUnitCategory::all();

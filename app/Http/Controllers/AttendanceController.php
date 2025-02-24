@@ -43,4 +43,6 @@ class AttendanceController extends Controller
 
         return redirect()->route('event_categories.create')->with('success', 'Category added successfully!');
     }
+
+    
 }

@@ -3,6 +3,10 @@
 <div class="container-fluid">
     <h1 class="my-4">Members</h1>
     <a href="{{ route('members.create') }}" class="btn btn-success mb-3">Add Member</a>
+    <form action="{{ route('members.index') }}" method="GET" class="mb-4">
+        <input type="text" name="search" class="form-control" placeholder="Search for members by name" value="{{ request()->query('search') }}">
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
+    </form>
     <form action="{{ route('members.import') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="file" name="csv_file" required>

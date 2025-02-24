@@ -25,18 +25,20 @@ Route::get('/', function () {
 // Dashboard route
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/attendance-report', [DashboardController::class, 'attendanceReport'])->name('attendance.report');
+    Route::get('/financial-report', [DashboardController::class, 'financialReport'])->name('financial.report');
 });
 
 // Member routes
 Route::middleware(['auth'])->group(function () {
     Route::resource('members', MemberController::class);
-    Route::get('/create', [MemberController::class, 'create'])->name('create');
-    Route::post('members/send-sms', [MemberController::class, 'sendSms'])->name('members.sendSms');
-    Route::post('/members/bulk-sms', [MemberController::class, 'sendBulkSms'])->name('members.bulkSms');
-    Route::post('members/import', [MemberController::class, 'import'])->name('members.import');
     Route::get('members/{id}/profile', [MemberController::class, 'profile'])->name('members.profile');
+    Route::post('members/send-sms', [MemberController::class, 'sendSms'])->name('members.sendSms');
+    Route::post('members/bulk-sms', [MemberController::class, 'sendBulkSms'])->name('members.bulkSms');
+    Route::post('members/import', [MemberController::class, 'import'])->name('members.import');
     Route::get('unit/categories/create', [MemberController::class, 'createChurchUnitCategory'])->name('church_unit_categories.create');
     Route::post('unit/categories/store', [MemberController::class, 'storeChurchUnitCategory'])->name('church_unit_categories.store');
+    Route::get('/members', [MemberController::class, 'search'])->name('members.index');
 });
 
 // Attendance routes

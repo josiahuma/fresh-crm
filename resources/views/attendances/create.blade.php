@@ -22,6 +22,10 @@
                 <input type="number" name="children" id="children" class="form-control" required>
             </div>
             <div class="form-group">
+                <label for="total">Total:</label>
+                <input type="number" name="total" id="total" class="form-control" readonly>
+            </div>
+            <div class="form-group">
                 <label for="event">Event:</label>
                 <select name="event" id="event" class="form-control" required>
                     @foreach($event_categories as $event_category)
@@ -33,4 +37,25 @@
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menInput = document.getElementById('men');
+        const womenInput = document.getElementById('women');
+        const childrenInput = document.getElementById('children');
+        const totalInput = document.getElementById('total');
+
+        function updateTotal() {
+            const men = parseInt(menInput.value) || 0;
+            const women = parseInt(womenInput.value) || 0;
+            const children = parseInt(childrenInput.value) || 0;
+            const total = men + women + children;
+            totalInput.value = total;
+        }
+
+        menInput.addEventListener('input', updateTotal);
+        womenInput.addEventListener('input', updateTotal);
+        childrenInput.addEventListener('input', updateTotal);
+    });
+</script>
 @endsection

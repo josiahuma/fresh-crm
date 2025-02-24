@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('children');
             $table->date('date');
             $table->string('event');
+            $table->integer('total');
             $table->timestamps();
         });
     }
