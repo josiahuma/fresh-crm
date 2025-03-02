@@ -135,7 +135,7 @@ class MemberController extends Controller
     private function sendSmsToMember($mobileNumber, $message)
     {
         $apiKey = 'N2E1Nzc2Nzk2NjU3NDU0MzQ5NTU2ZDM2NzczNjRlMzE=	';
-        $sender = 'F Fountain';
+        $sender = 'Fresh Fount';
         $data = [
             'apikey' => $apiKey,
             'numbers' => $mobileNumber,

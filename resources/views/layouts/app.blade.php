@@ -113,36 +113,44 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('members.index') }}"><i class="fas fa-users"></i> Members</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('attendances.index') }}"><i class="fas fa-calendar-check"></i> Attendance</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('finances.index') }}"><i class="fas fa-dollar-sign"></i> Finance</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('leaders.index') }}"><i class="fas fa-user-tie"></i> Leaders</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('sms_templates.index') }}"><i class="fas fa-sms"></i> SMS Templates</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('income_categories.create') }}"><i class="fas fa-money-bill"></i> Add Income Category</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('expense_categories.create') }}"><i class="fas fa-money-bill"></i> Add Expense Category</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('event_categories.create') }}"><i class="fas fa-calendar-alt"></i> Add Event Category</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('church_unit_categories.create') }}"><i class="fas fa-building"></i> Add Church Unit Category</a>
-                </li>
+            @if(auth()->user()->user_type == 'sudo')
+                <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('members.index') }}"><i class="fas fa-users"></i> Members</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('leaders.index') }}"><i class="fas fa-user-tie"></i> Leaders</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('followups.index') }}"><i class="fas fa-user-friends"></i> Followups</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('attendances.index') }}"><i class="fas fa-calendar-check"></i> Attendance</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('finances.index') }}"><i class="fas fa-dollar-sign"></i> Finance</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('attendance.report') }}"><i class="fas fa-calendar-check"></i> Attendance Report</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('financial.report') }}"><i class="fas fa-calendar-check"></i> Financial Report</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('sms_templates.index') }}"><i class="fas fa-sms"></i> SMS Templates</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('income_categories.create') }}"><i class="fas fa-money-bill"></i> Add Income Category</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('expense_categories.create') }}"><i class="fas fa-money-bill"></i> Add Expense Category</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('event_categories.create') }}"><i class="fas fa-calendar-alt"></i> Add Event Category</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('church_unit_categories.create') }}"><i class="fas fa-building"></i> Add Church Unit Category</a></li>
+            @endif
+            @if(auth()->user()->user_type == 'admin')
+                <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('members.index') }}"><i class="fas fa-users"></i> Members</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('leaders.index') }}"><i class="fas fa-user-tie"></i> Leaders</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('followups.index') }}"><i class="fas fa-user-friends"></i> Followups</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('attendances.index') }}"><i class="fas fa-calendar-check"></i> Attendance</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('finances.index') }}"><i class="fas fa-dollar-sign"></i> Finance</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('attendance.report') }}"><i class="fas fa-calendar-check"></i> Attendance Report</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('financial.report') }}"><i class="fas fa-calendar-check"></i> Financial Report</a></li>
+            @endif
+            @if(auth()->user()->user_type == 'accountant')
+                <li class="nav-item"><a class="nav-link" href="{{ route('leaders.index') }}"><i class="fas fa-user-tie"></i> Leaders</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('followups.index') }}"><i class="fas fa-user-friends"></i> Followups</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('finances.index') }}"><i class="fas fa-dollar-sign"></i> Finance</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('financial.report') }}"><i class="fas fa-calendar-check"></i> Financial Report</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('leaders.index') }}"><i class="fas fa-user-tie"></i> Leaders</a></li>
+            @endif
+            @if(auth()->user()->user_type == 'receptionist')
+                <li class="nav-item"><a class="nav-link" href="{{ route('leaders.index') }}"><i class="fas fa-user-tie"></i> Leaders</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('followups.index') }}"><i class="fas fa-user-friends"></i> Followups</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('attendances.index') }}"><i class="fas fa-calendar-check"></i> Attendance</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('attendance.report') }}"><i class="fas fa-calendar-check"></i> Attendance Report</a></li>
+            @endif
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
