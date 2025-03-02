@@ -14,9 +14,11 @@
         </div>
     </form>
     <canvas id="financialChart" height="100px"></canvas>
+    <button id="exportButton" class="btn btn-primary mt-3">Export to JPG</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const ctx = document.getElementById('financialChart').getContext('2d');
@@ -64,6 +66,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         }
+    });
+
+    document.getElementById('exportButton').addEventListener('click', function () {
+        html2canvas(document.getElementById('financialChart')).then(canvas => {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/jpeg');
+            link.download = 'finance_chart.jpg';
+            link.click();
+        });
     });
 });
 </script>
