@@ -15,11 +15,11 @@
         </div>
         <div class="form-group">
             <label for="mobile_number">Mobile Number:</label>
-            <input type="text" name="mobile_number" id="mobile_number" class="form-control" required>  
+            <input type="text" name="mobile_number" id="mobile_number" class="form-control">  
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" class="form-control" required>
+            <input type="email" name="email" id="email" class="form-control">
         </div>
         
         <div class="form-group">
@@ -29,7 +29,7 @@
         
         <div class="form-group">
             <label for="anniversary_date">Anniversary Date:</label>
-            <input type="date" name="anniversary_date" id="anniversary_date" class="form-control" required>
+            <input type="date" name="anniversary_date" id="anniversary_date" class="form-control">
         </div>
         
         <div class="form-group">

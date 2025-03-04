@@ -16,11 +16,11 @@
         </div>
         <div class="form-group">
             <label for="mobile_number">Mobile Number:</label>
-            <input type="text" name="mobile_number" id="mobile_number" class="form-control" value="{{ $member->mobile_number }}" required @if(auth()->user()->user_type != 'admin') disabled @endif>
+            <input type="text" name="mobile_number" id="mobile_number" class="form-control" value="{{ $member->mobile_number }}" @if(auth()->user()->user_type != 'admin') disabled @endif>
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" class="form-control" value="{{ $member->email }}" required @if(auth()->user()->user_type != 'admin') disabled @endif>
+            <input type="email" name="email" id="email" class="form-control" value="{{ $member->email }}" @if(auth()->user()->user_type != 'admin') disabled @endif>
         </div>
         <div class="form-group">
             <label for="date_of_birth">Date of Birth:</label>
