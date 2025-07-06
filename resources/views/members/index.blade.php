@@ -33,12 +33,13 @@
                 <tr>
                     <th class="sortable px-4 py-2 cursor-pointer" data-label="First Name" onclick="sortTable(0)">First Name</th>
                     <th class="sortable px-4 py-2 cursor-pointer" data-label="Last Name" onclick="sortTable(1)">Last Name</th>
-                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Mobile Number" onclick="sortTable(2)">Mobile Number</th>
-                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Email" onclick="sortTable(3)">Email</th>
-                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Date of Birth" onclick="sortTable(4)">Date of Birth</th>
-                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Anniversary Date" onclick="sortTable(5)">Anniversary Date</th>
-                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Church Unit" onclick="sortTable(6)">Church Unit</th>
-                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Church Leader" onclick="sortTable(7)">Church Leader</th>
+                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Gender" onclick="sortTable(2)">Gender</th>
+                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Mobile Number" onclick="sortTable(3)">Mobile Number</th>
+                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Email" onclick="sortTable(4)">Email</th>
+                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Date of Birth" onclick="sortTable(5)">Date of Birth</th>
+                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Anniversary Date" onclick="sortTable(6)">Anniversary Date</th>
+                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Church Unit" onclick="sortTable(7)">Church Unit</th>
+                    <th class="sortable px-4 py-2 cursor-pointer" data-label="Church Leader" onclick="sortTable(8)">Church Leader</th>
                     <th>Custom Fields</th>
                     <th>Actions</th>
                 </tr>
@@ -48,6 +49,7 @@
                     <tr class="clickable-row" data-href="{{ route('members.profile', $member->id) }}">
                         <td>{{ $member->first_name }}</td>
                         <td>{{ $member->last_name }}</td>
+                        <td>{{ $member->gender }}</td>
                         <td>{{ $member->mobile_number }}</td>
                         <td>{{ $member->email }}</td>
                         <td>{{ $member->date_of_birth }}</td>

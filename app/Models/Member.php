@@ -8,7 +8,7 @@ class Member extends Model
 {
     //
     protected $fillable = [
-        'first_name', 'last_name', 'mobile_number', 'email', 'date_of_birth', 'anniversary_date', 'church_unit', 'church_leader', 'custom_fields'
+        'first_name', 'last_name', 'gender', 'mobile_number', 'email', 'date_of_birth', 'anniversary_date', 'church_unit', 'church_leader', 'custom_fields'
     ];
 
     public function leader()

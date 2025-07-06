@@ -14,6 +14,10 @@
             <label for="last_name">{{ $member->last_name }}</label>
         </div>
         <div class="form-group">
+            <label for="gender">Gender:</label>
+            <label for="gender">{{ $member->gender }}</label>
+        </div>
+        <div class="form-group">
             <label for="mobile_number">Mobile Number:</label>
             <label for="mobile_number">{{ $member->mobile_number }}</label>
         </div>

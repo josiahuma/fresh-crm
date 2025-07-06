@@ -15,6 +15,13 @@
             <input type="text" name="last_name" id="last_name" class="form-control" value="{{ $member->last_name }}" required @if(auth()->user()->user_type != 'admin') disabled @endif>
         </div>
         <div class="form-group">
+            <label for="last_name">Gender:</label>
+            <select name="gender" id="gender" class="form-control" value="{{ $member->gender }}" required @if(auth()->user()->user_type != 'admin') disabled @endif>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            <select>
+        </div>
+        <div class="form-group">
             <label for="mobile_number">Mobile Number:</label>
             <input type="text" name="mobile_number" id="mobile_number" class="form-control" value="{{ $member->mobile_number }}" @if(auth()->user()->user_type != 'admin') disabled @endif>
         </div>

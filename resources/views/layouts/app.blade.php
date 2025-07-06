@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Church CRM</title>
+    <title>OviPoint</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -107,7 +107,7 @@
 <body>
     @auth
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-lg-none">
-        <a class="navbar-brand" href="#">Fresh CRM</a>
+        <a class="navbar-brand" href="#">OviPoint</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -162,7 +162,7 @@
     </nav>
     <div class="main-container">
         <div class="sidebar d-none d-lg-block">
-            <h2>Fresh CRM</h2>
+            <h2>OviPoint</h2>
             @if(auth()->user()->user_type == 'sudo')
                 <a href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 <a href="{{ route('members.index') }}"><i class="fas fa-users"></i> Members</a>
