@@ -107,7 +107,7 @@
 <body>
     @auth
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-lg-none">
-        <a class="navbar-brand" href="#">OviPoint</a>
+        <a class="navbar-brand" href="#">Fresh CRM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -162,7 +162,7 @@
     </nav>
     <div class="main-container">
         <div class="sidebar d-none d-lg-block">
-            <h2>OviPoint</h2>
+            <h2>Fresh CRM</h2>
             @if(auth()->user()->user_type == 'sudo')
                 <a href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 <a href="{{ route('members.index') }}"><i class="fas fa-users"></i> Members</a>

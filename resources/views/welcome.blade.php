@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ovipoint - Church Management System</title>
+    <title>Fresh - CRM System</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
@@ -39,7 +39,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand font-weight-bold text-primary" href="{{ url('/') }}">OviPoint</a>
+            <a class="navbar-brand font-weight-bold text-primary" href="{{ url('/') }}">Fresh CRM</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -67,8 +67,8 @@
     <!-- Hero Section -->
     <section class="hero-section text-center">
         <div class="container">
-            <h1 class="display-4 font-weight-bold">OviPoint Church Management</h1>
-            <p class="lead mt-3 mb-4">Efficiently manage members, finances, SMS communication, attendance records, and more—all in one place.</p>
+            <h1 class="display-4 font-weight-bold">Fresh CRM System</h1>
+            <p class="lead mt-3 mb-4">Efficiently manage clients/members, finances, SMS communication, attendance records, and more—all in one place.</p>
             <!--<a href="{{ route('register') }}" class="btn btn-primary btn-lg">Get Started for Free</a>-->
         </div>
     </div>
@@ -79,8 +79,8 @@
         <div class="row">
             <div class="col-md-3 text-center">
                 <div class="card shadow-sm p-3">
-                    <h4>Members Management</h4>
-                    <p>Easily store, manage, and organize your church member details.</p>
+                    <h4>Client Management</h4>
+                    <p>Easily store, manage, and organize your client member details.</p>
                 </div>
             </div>
             <div class="col-md-3 text-center">
@@ -114,7 +114,7 @@
     <!-- Footer -->
     <footer class="footer text-center">
         <div class="container">
-            <p>&copy; {{ date('Y') }} OviPoint. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Fresh CRM. All rights reserved.</p>
             <div class="mt-2">
                 <a href="#" class="footer-link mx-2">Privacy Policy</a>
                 <a href="#" class="footer-link mx-2">Terms of Service</a>
